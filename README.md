@@ -7,6 +7,7 @@ pkg install git -y
 git clone https://github.com/coderduc/dctool
 cd dctool
 chmod +x setup
-bash setup
+./setup
+./dctool
 ```
 [>] Done.
