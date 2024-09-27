@@ -16,51 +16,8 @@ LIGHTBLUE='\033[1;34m'
 LIGHTPURPLE='\033[1;35m'
 LIGHTCYAN='\033[1;36m'
 WHITE='\033[1;37m'
-
-# Define rainbow color code
-colors=(
-    "\033[31m"  # Red
-    "\033[33m"  # Yellow
-    "\033[32m"  # Green
-    "\033[36m"  # Cyan
-    "\033[34m"  # Blue
-    "\033[35m"  # Magenta
-)
-# Reset color
-reset="\033[0m"
-
-# Function to print rainbow-colored text
-rainbow() {
-    local text="$1"
-    local i
-    local text_length=${#text}
-
-    for ((i=0; i<text_length; i++)); do
-        color_index=$((i % ${#colors[@]}))
-        printf "${colors[$color_index]}${text:$i:1}"
-    done
-    printf "$reset\n"
-}
-clear
-rainbow "=========================================="
-echo -e "${LIGHTRED}██████╗  ██████╗███╗   ███╗ ██████╗ ██████╗ "
-echo -e "${LIGHTRED}██╔══██╗██╔════╝████╗ ████║██╔═══██╗██╔══██╗"
-echo -e "${LIGHTRED}██║  ██║██║     ██╔████╔██║██║   ██║██║  ██║"
-echo -e "${WHITE}██║  ██║██║     ██║╚██╔╝██║██║   ██║██║  ██║"
-echo -e "${WHITE}██████╔╝╚██████╗██║ ╚═╝ ██║╚██████╔╝██████╔╝"
-echo -e "${WHITE}╚═════╝  ╚═════╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ "
-rainbow "=========================================="
-printf "
-"
-echo -e "${LIGHTRED}𝐃𝐂𝐓𝐎𝐎𝐋 𝐕𝟔${NOCOLOR}"
-echo -e "${LIGHTBLUE}𝐓𝐄𝐋𝐄𝐆𝐑𝐀𝐌 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 𝐃𝐂𝐌𝐎𝐃𝐏𝐔𝐁𝐆${NOCOLOR}"
-echo -e "${YELLOW}𝐂𝐨𝐧𝐭𝐚𝐜𝐭: @𝐝𝐮𝐧𝐠𝟔𝟒𝟏𝟎 𝐨𝐫 @𝐠𝟒𝐠𝐥𝐢𝐭𝐜𝐡𝐞𝐫${NOCOLOR}"
-echo -e "Executing: ${LIGHTGREEN}SETUP${NOCOLOR}"
-echo "-----------------------"
-
 # Setup directory for Requirements
 quickbms_dir=$PREFIX/share/quickbms
-
 function redirect {
  echo -e "${LIGHTGREEN}STARTING DCTOOL${NOCOLOR}"
  echo -ne '#####                     (33%)\r'
@@ -142,7 +99,7 @@ function quickbms_install {
 #Checking Required Pakcages
 echo -e "${YELLOW}Checking Required packages${NOCOLOR}"
 
-packages=("wget" "zip" "unzip" "curl" "x11-repo" "qemu-system-i386" "qemu-user-i386" "jq")
+packages=("wget" "zip" "unzip" "curl" "x11-repo" "qemu-system-i386" "qemu-user-i386" "jq" "libandroid-wordexp")
 
 for pkg in ${packages[@]}; do
 
